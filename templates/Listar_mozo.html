@@ -1,0 +1,48 @@
+{% extends "base_template2.html" %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleListaMozo.css') }}">
+</head>
+
+<body>
+    <div class="container" id="login">
+        <div class="">
+            <div id="listarpedidos">
+                <div class="container-fluid">
+                    <h1 class="text-center">
+                        Pedidos Vigentes
+                    </h1>
+                    <div class="container col-sm-12">
+                        {% if pedidos %}
+                        <ul class="row" style="list-style: none;">
+                            {% for pedido in pedidos %}
+                            <li class="itempedidos text-center col-sm-12">
+                                <a style="text-decoration: none; color:black;"
+                                    href="{{url_for('Cobrar',pedido = pedido.NumPedido)}}">
+                                    <div class="">
+                                        <h3 class=""> Pedido {{ pedido.NumPedido }} </h3>
+                                        <h4 class="stronger"> <b> Mesa {{ pedido.Mesa }} </b> </h4>
+                                    </div>
+                                    {% for item in pedido.item_pedido %}
+                                    <p class=""> {{ item.item_producto.Nombre }}</p>
+                                    <p> Precio Unitario: {{ item.item_producto.PrecioUnitario }} </p>
+                                    {%  endfor %}
+                                    <small class="text-muted"> Mozo {{ pedido.DniMozo }}</small>
+                                </a>
+                            </li>
+
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <h1 style="text-align: center; font-size: 30px;">No se han encontrado pedidos pendientes</h1>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}y

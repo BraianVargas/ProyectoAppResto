@@ -1,0 +1,43 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/basestyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fonts/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleLogin.css') }}">
+    <title>Restaurante</title>
+</head>
+<header>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navegacionBV">
+                    <span class="sr-only">Desplegar/ocultar menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">ReastaurApp</a>
+            </div>
+            <!-- Inicia Menu -->
+            <div class="collapse navbar-collapse" id="navegacionBV">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a class="inicio" href="{{url_for('index')}}">
+                            <span class="icon-home"> Inicio </span> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body style="background-color: rgb(58, 195, 230);">
+    {% block content %}{% endblock %}
+    <a href=""></a>
+</body>
+</html>

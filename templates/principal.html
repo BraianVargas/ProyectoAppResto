@@ -1,0 +1,66 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylePrincipal.css')}}">
+</head>
+
+<body>
+    <div class="funciones container">
+        <div class="row">
+            <div class="container">
+                <h2 class="col-xs-12 text-center"> Bienvenido {{ Tipo }} </h2>
+                <div class="container col-md-12">
+                    <h2 class="col-xs-12"> FUNCIONALIDADES: </h2>
+                    {%if Tipo == 'Mozo' %}
+                    <ul style="list-style: none;">
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success"
+                                href="{{ url_for('registarPedido')}}">Crear un Nuevo Pedido</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success"
+                                href="{{ url_for('ListarCocinero')}}">Listar pedidos vigentes / Cobrar Pedido</a>
+                        </li>
+                    </ul>
+                    {%elif Tipo == 'Cocinero'%}
+                    <ul>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success"
+                                href="{{url_for('ListarCocinero')}}">
+                                Marcar pidido como Listo
+                            </a>
+                        </li>
+                    </ul>
+                    {%elif Tipo == 'Administrador'%}
+                    <ul>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success" href="{{url_for('newUser')}}">
+                                Crear nuevo usuario
+                            </a>
+                        </li>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success" href="{{url_for('newProduct')}}">
+                                Agregar nuevo producto
+                            </a>
+                        </li>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success" href="{{url_for('deleteUoP')}}">
+                                Eliminar usuario o producto
+                            </a>
+                        </li>
+                        <li>
+                            <a style="margin: 1%;" class=" col-md-5 btn btn-success" href="{{url_for('ViewHistory')}}">
+                                Ver Historial de pedidos por fecha
+                            </a>
+                        </li>
+                    </ul>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

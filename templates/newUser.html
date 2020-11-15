@@ -1,0 +1,36 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleNewU.css') }}">
+</head>
+
+<body>
+    <form method="POST" action="{{url_for('newUser')}}">
+        <div class="container-fluid row text-justify">
+            <h1>Nuevo Usuario</h1>
+            <br>
+            <div class="input-group col-sm-12">
+                <span class="input-group-addon" for="Usuario">Usuario: </span>
+                <input class="form-control" type="text" name="Usuario" id="IUser">
+            </div>
+            <br>
+            <div class="input-group col-sm-12">
+                <span class="input-group-addon" for="Password">Contraseña: </span>
+                <input class="form-control" type="text" name="Password" id="IPassword">
+            </div>
+            <br>
+            <div class="input-group col-sm-12">
+                <span class="input-group-addon" for="Tipo">Tipo: </span>
+                <input class="form-control" type="text" name="Tipo" id="ITipo">
+            </div>
+            <br>
+            <button class="btn btn-success text-center" type="submit"><span class='icon-save'></span> Guardar Datos </button>
+            <br>
+        </div>
+    </form>
+    <br><br><br><br>
+</body>
+
+{% endblock %}

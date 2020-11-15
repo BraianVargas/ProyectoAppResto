@@ -1,0 +1,23 @@
+body{
+    background-image: url(/static/img/Fondo2.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#listarpedidos{
+    background-color: beige;
+    padding: 2%;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+}
+.itempedidos{
+    background-color: rgba(205, 248, 123, 0.967);
+    padding: 2%;
+    margin: 1%;
+    border-radius: 10px;
+}
+.itempedidos:hover{
+    background-color: rgb(121, 117, 117);
+}

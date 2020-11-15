@@ -1,0 +1,59 @@
+form {
+    display: block;
+    width: 60%;
+    height: 300%;
+    background-color: #144f61c5;
+    margin: auto;
+    padding: 2%;
+}
+
+#calendar{
+    font-size: 1.1rem;
+    background-color: rgb(168, 168, 168);
+}
+
+form label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
+    padding: 1.5%;
+    width: 40%;
+    font-size: 125%;
+    color: black;
+}
+
+#btnSubmit {
+    display: inline-block;
+    font-size: 130%;
+    padding: 1.5%;
+    border-radius: 20%;
+    background-color: #41b10dcc;
+    color: aliceblue;
+    width: auto;
+    border-style: none;
+}
+
+h1 {
+    margin-left: 25%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.search{
+    font-weight: bold;
+    display: block;
+}
+.viewer{
+    background-color: rgb(255, 236, 127);
+    font-weight: bold;
+    display: block;
+}
+.list{
+    list-style: none;
+}
+.item{
+    width: 80%;
+    padding: 2%;
+    background-color: burlywood;
+    border: solid;
+}
+

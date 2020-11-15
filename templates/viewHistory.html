@@ -1,0 +1,37 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleViewH.css') }}">
+</head>
+
+<form action="{{url_for('ViewHistory')}}" method="POST">
+    <div class="search">
+        <label for="calendar">Seleccione la fecha a buscar: </label>
+        <input type="date" name="dateSelecter" id="calendar">
+
+        <button type="submit" id="btnSubmit" onclick="Swal.fire()"><span class="icon icon-search"></span> Buscar
+        </button>
+    </div>
+    <br>
+    <div class="viewer">
+        <h1>TOTAL: ${{ Total }}</h1>
+        {% if pedidos %}
+        <ul class="list">
+            {% for pedido in pedidos %}
+            <li class="item">
+                <h5> Pedido {{ pedido.NumPedido }} </h5>
+                <h5> Total {{ pedido.Total }} </h5>
+                <h5> Mesa {{ pedido.Mesa }}</h5>
+                <small>Mozo {{ pedido.DniMozo }}</small>
+            </li>
+            {% endfor %}
+        </ul>
+        <br>
+        {% else %}
+        <h1>No se han encontrado pedidos de esta fecha</h1>
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

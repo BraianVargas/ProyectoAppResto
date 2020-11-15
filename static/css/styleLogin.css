@@ -1,0 +1,7 @@
+form {
+    display: block;
+    width: 50%;
+    padding: 2%;
+    background-color: rgba(173, 216, 230, 0.753);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

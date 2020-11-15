@@ -1,0 +1,48 @@
+{% extends "base_template2.html" %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleListaCocinero.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center col-sm-12">
+                Pedidos Pendientes
+            </h1>
+            <ul class="list-group-flush container-fluid">
+                {% if pedidos %}
+                {% for pedido in pedidos %}
+                <!-- <div id="items"> -->
+                    <li id="items" class="container-fluid">
+                        <section class="container-fluid text-align-left" style="color: black;"> 
+                            <label> N° Pedido: {{pedido.NumPedido}} </label><br>
+                            <label class="h4"> <b> Mesa N°: {{pedido.Mesa}}</b> </label><br>
+                            <label>Observaciones: &nbsp; {{pedido.Observacion}}</label>
+                        </section>
+                        <br>
+                        <section class="itemsped container-fluid text-center">
+                            <label> Nombre --> Estado </label> <br><br>
+                            {% for item in pedido.item_pedido %}
+                            <a class="h4" href="{{ url_for('Cocinero',numpedido = item.NumItem)}}">
+                                {{ item.item_producto.Nombre }} -->
+                                {{ item.Estado }}
+                            </a>
+                            <br><br>
+                            {%  endfor %}
+                        </section>
+                    </li>
+                <!-- </div> -->
+                <br>
+                {%  endfor %}
+
+                {% else %}
+                <li class="list-group-item" style="height: 150px; min-height: 100px; max-height: 200px;">
+                    <h1 style="text-align: center; font-size: 2rem;">No se han encontrado pedidos pendientes</h1>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</body>
+{% endblock %}

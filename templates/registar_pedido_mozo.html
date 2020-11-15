@@ -1,0 +1,75 @@
+{% extends "base_template2.html" %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleRegPed.css') }}">
+</head>
+<br>
+<br>
+<br>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="Carta col-xs-12 col-md-5">
+                <h1>CARTA DEL RESTAURANTE</h1>
+                <ul class="Productos" style="list-style:none;">
+                    {% if productos %}
+                    {% for producto in productos %}
+                    <li class="Items">
+                        <a class="btn btn-primary text-left" href="{{ url_for ( 'Listar',nombre= producto.Nombre,precio=producto.PrecioUnitario ) }}">
+                            {{producto.Nombre}}
+                        </a>
+                        <p class="btn btn-primary text-right">
+                            ${{producto.PrecioUnitario}}
+                        </p>
+                    </li>
+                    <br>
+                    {% endfor %}
+                    {% else %}
+                    <li>
+                        <h1>No se han encontrado productos</h1>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+    
+            <div class="Pedidos col-xs-12 col-md-5">
+                <!-- ***********************************FORM LISTA PEDIDOS ****************************************  -->
+                <form class="row" action="{{ url_for('Nuevopedido') }}" method="POST">
+                    <label for="Mesa" class="col-md-9">
+                        Ingrese Numero de Mesa
+                    </label>
+                    <input type="number" class="col-md-3" placeholder="0" required name="Mesa">
+                    <div class="col-md-12">
+                        <h1 class="btn-warning"> Orden - Total : $ {{ total }} </h1>
+                        <ul style="list-style:none;">
+                            {% if listaNom %}
+                            {% for nombre in listaNom %}
+                            <li class="Items row">
+                                <label class="col-xs-12 col-md-9"> {{nombre}} </label>
+                                <input class="col-xs-12 col-md-3" type="number" placeholder="Cantidad" value="1" name="Cant" id="Cant">
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            {% if listaNom == '' %}
+                            <li class="Items">
+                                <a> Esperando pedidos </a>
+                            </li>
+                            {%endif%}
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <br><br>
+                    <div class="container-fluid col-sm-12">
+                        <label class="col-sm-12 col-md-5" for="observacion"> Observacion del Pedido </label>
+                        <textarea class="col-sm-12 col-md-7" name="observacion" id="observacion" cols="15" rows="10"></textarea>
+                    </div>
+                    <br><br>
+                    <button class="^btn btn-success text-center col-sm-12" type="submit" id="confirmar"> Confirmar pedido </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

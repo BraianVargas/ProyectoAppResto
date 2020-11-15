@@ -1,0 +1,31 @@
+{% extends "base_template2.html" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleCobroPed.css') }}">
+</head>
+
+<body>
+    <div class="container cuerpo">
+        <div class="row text-center">
+            <form class="col-sm-12" action="{{ url_for('PagarPedido', pedido = pedido.NumPedido) }}" method="POST">
+                <h1> <b> Cobrar </b> </h1>
+                <section id="h2s">
+                    <h2>Pedido {{ pedido.NumPedido }} </h2>
+                    <h2> Total ${{ pedido.Total }}</h2>
+                </section>
+                <br>
+                <div>
+                    {% for item in pedido.item_pedido %}
+                    <h3 style="font-size: 20px; ">{{ item.item_producto.Nombre }} -
+                        <span>${{ item.item_producto.PrecioUnitario }}</span></h3>
+                    {%  endfor %}
+                </div>
+                <br><br>
+                <button type="submit" id="confirmar" class="btn btn-primary">
+                    Confirmar cobro
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

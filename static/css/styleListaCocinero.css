@@ -1,0 +1,41 @@
+body {
+    background-image: url(/static/img/listar.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#items {
+    padding: 2%;
+    border-radius: 20px;
+    width: 70%;
+    margin: auto;
+    background-color: #b68459c2;
+}
+
+.row>ul {
+    padding: 2% 0 0 2%;
+    list-style: none;
+    overflow-y: scroll;
+    height: 520px;
+}
+
+.itemsped {
+    padding: 2%;
+    border-radius: 20px;
+    background-color: #d0ab7ac9;
+}
+
+.itemsped label,
+h1{
+    padding: 2%;
+    background-color: #ccb387d7;
+    border-radius: 20px;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.itemsped a:hover{
+    color: rgba(184, 74, 34, 0.844);
+}

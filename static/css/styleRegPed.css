@@ -1,0 +1,37 @@
+body{
+    background-image: url(/static/img/fondo.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Carta {
+    height: auto;
+    background-color: rgba(180, 181, 182, 0.789);
+    padding: 2%;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.Pedidos {
+    height: auto;
+    background-color: rgba(180, 181, 182, 0.789);
+    padding: 2%;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.Items{
+    width: 95%;
+    padding: 3%;
+    background-color: lavender;
+}
+textarea{
+    max-width: 100%;
+    min-width: 50%;
+    max-height: 150px;
+    min-height: 80px;
+}
+h1{
+    padding: 2%;
+    border-radius: 10px;
+}

@@ -1,0 +1,28 @@
+{% extends "base_template.html" %}
+{% block content %}
+
+<br>
+<form class="container-fluid" action="{{ url_for('LOGIN') }}" method="POST">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="text-center">
+                <div class="form-group col-xs-12">
+                    <div class="input-group" style="display: block;">
+                        <label for="Usuario"> Usuario </label>
+                        <br>
+                        <input type="text" class="form-control" required pattern="^\d{8}" id="Usuario" name="dni"
+                            placeholder="Usuario">
+                        <br>
+                        <label for="Pass"> Contraseña </label>
+                        <br>
+                        <input type="password" class="form-control" required placeholder="Contraseña" name="password" id="Pass">
+                        <br> <br>
+                        <input type="submit" class="btn btn-success" value="Iniciar Sesión" name="" id="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

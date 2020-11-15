@@ -1,0 +1,65 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDelete.css') }}">
+</head>
+
+<body>
+    <form class="container-fluid" method="POST" action="{{url_for('deleteUoP')}}">
+        <div class="container-fluid">
+            <h1>Eliminar</h1>
+            <label class="h4" for="INombre">Nombre de Producto o Usuario:</label>
+            <div class="row">
+                <input class="btn col-sm-9" type="text" name="Name" id="INombre">
+                <button class="btn btn-success col-sm-3" type="submit" id="btnSubmit">
+                    <span class="icon icon-search"></span>
+                    Buscar
+                </button>
+            </div>
+            <br>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            {% if product %}
+            <ul class="col-sm-12">
+                <li class="container-fluid" style="list-style: none;">
+                    <div class="text-center col-sm-12 col-md-9">
+                        <label class="" style="color: black;">
+                            Nombre de Producto: {{product.Nombre}}
+                        </label>
+                    </div>
+                    <a class='btn btn-danger col-sm-12 col-md-3' href="{{ url_for('eraseP',nom=product.Nombre) }}">
+                        <span class="icon-del"></span>
+                    </a>
+                </li>
+            </ul>
+            {% elif usuario %}
+            <ul class="">
+                <li class="container-fluid" style="list-style: none;">
+                    <div class="text-center col-sm-12 col-md-9">
+                        <label style="color: black;">
+                            DNI de Usuario: {{usuario.DNI}}
+                            <br>
+                            Tipo de Usuario: {{usuario.Tipo}}
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <a class='btn btn-danger' href="{{ url_for('eraseU',nom=usuario.DNI) }}">
+                            <span id="btn" class="icon-del"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+    </form>
+
+</body>
+{% endblock %}

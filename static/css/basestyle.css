@@ -1,0 +1,9 @@
+body{
+    min-width: 500px;
+    min-height: 500px;
+    background-image: url("/static/img/Fondo4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-position-y: 70%; */
+}
